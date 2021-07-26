@@ -1,0 +1,9 @@
+main: com.husker.minecraft.launcher.plugin.AreaGeneratorPlugin
+name: AreaGenerator
+version: 1.0
+author: Husker
+description: Plugin for launcher
+commands:
+  area:
+    description: Generates area file
+    usage: /<command> [x] [y] [z] [radius]
