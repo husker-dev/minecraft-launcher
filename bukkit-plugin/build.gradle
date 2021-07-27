@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
 }
 
-group 'com.husker.minecraft.launcher.plugin'
+group 'com.husker.minecraft.launcher.bukkit-plugin'
 version '1.0'
 
 compileJava.options.encoding = 'UTF-8'

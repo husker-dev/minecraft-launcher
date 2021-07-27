@@ -5,7 +5,178 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03a3ef4c-3959-4abf-b9d1-41bd6ab03a6d" name="Default Changelist" comment="Project structure updates">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/classes/kotlin/main/META-INF/plugin.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/classes/kotlin/main/com/husker/minecraft/launcher/plugin/AreaGenerator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/classes/kotlin/main/com/husker/minecraft/launcher/plugin/AreaGeneratorPlugin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/build-history.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/inputs/source-to-output.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-attributes.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/proto.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/subtypes.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/jvm/kotlin/supertypes.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/file-to-id.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/id-to-file.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.keystream.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab.values.s" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/caches-jvm/lookups/lookups.tab_i.len" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/compileKotlin/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/kotlin/plugin10jar-classes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/libs/plugin-1.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/resources/main/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/libs/bukkit-1.12.2-R0.1-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/libs/craftbukkit-1.12.2-R0.1-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/libs/spigot-1.12.2-R0.1-SNAPSHOT-shaded.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/src/main/java/com/husker/minecraft/launcher/plugin/AreaGenerator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/src/main/java/com/husker/minecraft/launcher/plugin/AreaGeneratorPlugin.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bukkit-plugin/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/fx_patch.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/fx_patch.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/native-config/jni-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/native-config/jni-config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/native-config/proxy-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/native-config/proxy-config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/native-config/reflect-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/native-config/reflect-config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/native-config/resource-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/native-config/resource-config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/native-config/serialization-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/native-config/serialization-config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/resources.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/resources.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/Launcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/Launcher.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/Resources.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/Resources.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/AnimatedMoving.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/AnimatedMoving.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/EasingTransition.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/EasingTransition.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/NodeAnimation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/NodeAnimation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/WaveAnimation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/WaveAnimation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/AbstractEasing.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/AbstractEasing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Back.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Back.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Bezier.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Bezier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Bounce.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Bounce.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Circular.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Circular.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Cubic.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Cubic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Easing.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Easing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Elastic.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Elastic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Exponential.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Exponential.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Linear.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Linear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Quadratic.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Quadratic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Quartic.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Quartic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Quintic.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Quintic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Sinusoidal.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/animation/easing/Sinusoidal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/Block.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/Block.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/MineVersion.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/MineVersion.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/blocks/ModelBlock.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/blocks/ModelBlock.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/blocks/impl/AirBlock.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/blocks/impl/AirBlock.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/blocks/impl/DefaultBlock.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/blocks/impl/DefaultBlock.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/blocks/impl/FireBlock.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/blocks/impl/FireBlock.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/blocks/impl/GrassBlock.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/blocks/impl/GrassBlock.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/blocks/impl/MushroomBlock.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/blocks/impl/MushroomBlock.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/models/Model.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/models/Model.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/models/ModelTexture.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/models/ModelTexture.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/models/TextureMeta.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/models/TextureMeta.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/models/TextureSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/models/TextureSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/scene/PreviewParameters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/scene/PreviewParameters.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/scene/PreviewScene.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/scene/PreviewScene.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/versions/V16.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/versions/V16.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/minecraft/versions/V17.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/versions/V17.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/scenes/BaseScene.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/scenes/BaseScene.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/scenes/Tab.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/scenes/Tab.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/scenes/nplay/NPlayTab.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/scenes/nplay/NPlayTab.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/scenes/play/PlayTab.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/scenes/play/PlayTab.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/scenes/profile/ProfileTab.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/scenes/profile/ProfileTab.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/app/scenes/settings/SettingsTab.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/scenes/settings/SettingsTab.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/tools/LauncherProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/tools/LauncherProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/tools/fx/AnchorUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/tools/fx/AnchorUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/tools/fx/EffectBlender.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/tools/fx/EffectBlender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/tools/fx/FPSUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/tools/fx/FPSUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/tools/fx/HiDpiUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/tools/fx/HiDpiUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/tools/fx/ImageContentUtils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/tools/fx/ImageContentUtils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/tools/fx/LauncherTimer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/tools/fx/LauncherTimer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/tools/fx/RectangleShape.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/tools/fx/RectangleShape.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/tools/fx/nodes/CoolScrollPane.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/tools/fx/nodes/CoolScrollPane.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/tools/fx/nodes/DebugPanel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/tools/fx/nodes/DebugPanel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/tools/fx/nodes/PixelatedImageView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/tools/fx/nodes/PixelatedImageView.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/husker/minecraft/launcher/tools/fx/scenes/ResourceScene.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/tools/fx/scenes/ResourceScene.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sun/prism/d3d/D3DPhongMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/sun/prism/d3d/D3DPhongMaterial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sun/prism/es2/ES2PhongMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/sun/prism/es2/ES2PhongMaterial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/sun/prism/impl/BaseResourceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/sun/prism/impl/BaseResourceFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin/libs/bukkit-1.12.2-R0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin/libs/craftbukkit-1.12.2-R0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin/libs/spigot-1.12.2-R0.1-SNAPSHOT-shaded.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin/src/main/java/com/husker/minecraft/launcher/plugin/AreaGenerator.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin/src/main/java/com/husker/minecraft/launcher/plugin/AreaGeneratorPlugin.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin/src/main/resources/plugin.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +307,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.husker.minecraft.launcher.Main" />
-      <module name="minecraft-launcher.app" />
+      <module name="minecraft-launcher.launcher" />
       <option name="VM_PARAMETERS" value="-XX:+UnlockExperimentalVMOptions -XX:+UnlockDiagnosticVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:ConcGCThreads=4 -Xms2m -Xmx256m" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -217,6 +388,19 @@
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="minecraft-launcher.launcher" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="minecraft-launcher.launcher" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
       <item itemvalue="Application.Launch" />
@@ -302,7 +486,7 @@
       <workItem from="1627298325765" duration="14132000" />
       <workItem from="1627342288532" duration="1443000" />
       <workItem from="1627372769987" duration="3456000" />
-      <workItem from="1627378112986" duration="3567000" />
+      <workItem from="1627378112986" duration="3889000" />
     </task>
     <task id="LOCAL-00001" summary="Module refactoring, DebugPanel fixes">
       <created>1627377636506</created>
@@ -346,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627386310585</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Project structure updates">
+      <created>1627386513514</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1627386513514</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

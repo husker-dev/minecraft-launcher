@@ -1,0 +1,1 @@
+C:\Users\redfa\Documents\Java_projects\minecraft-launcher\plugin\build\classes\kotlin\main\com\husker\minecraft\launcher\plugin\AreaGenerator.class;C:\Users\redfa\Documents\Java_projects\minecraft-launcher\plugin\build\classes\kotlin\main\com\husker\minecraft\launcher\plugin\AreaGeneratorPlugin.class
