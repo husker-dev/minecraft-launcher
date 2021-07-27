@@ -1,10 +1,5 @@
 # Project exclude paths
 /.gradle/
-/build/
-/build/classes/java/main/
-/clients/
-/players/
-/received_clients_tmp/
-/loaded_clients/
-/out/
-/logs/
+/.idea/
+/app/build
+/plugin/build

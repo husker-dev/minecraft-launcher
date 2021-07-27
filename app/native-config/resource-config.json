@@ -1,0 +1,7 @@
+{
+  "bundles": [],
+  "resources": {"includes": [
+    {"pattern": "\\QMETA-INF/MANIFEST.MF\\E"},
+    {"pattern": "\\QMETA-INF/app.kotlin_module\\E"}
+  ]}
+}

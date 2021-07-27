@@ -15,27 +15,11 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.10'
     id 'org.jetbrains.kotlin.jvm' version '1.5.10'
 }
-apply plugin: "ru.mail.husker-dev.native"
 
 group 'com.husker.minecraft.launcher'
 version '1.0'
 
-sourceSets {
-    main {
-        resources {
-            srcDirs "src/main/resources"
-        }
-    }
-}
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'com.husker.minecraft.launcher.Main'
-    }
-    from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
-}
 
 repositories {
     mavenCentral()
@@ -43,70 +27,5 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
-    implementation 'org.json:json:20210307'
-
-    String FXVersion = "17-ea+16"
-    for(module in ["base", "controls", "graphics", "fxml"])
-        for(os in ["win", "mac", "linux"])
-            implementation "org.openjfx:javafx-$module:$FXVersion:$os"
-
 }
 
-/*
-javafx {
-    version = "17-ea+16"
-    modules("javafx.controls", "javafx.graphics", "javafx.fxml")
-}
-
- */
-
-
-nativeCompile{
-    reflectionOpens = [
-            'javafx.scene.image.Image',
-            'javafx.scene.transform.Transform',
-            'javafx.scene.text.Text',
-            'javafx.scene.shape.Shape'
-    ]
-    output{
-        console = false
-    }
-}
-
-task FXPatch() {
-    doLast {
-        ArrayList files = new ArrayList<File>()
-        HashMap localPatches = new HashMap<File, String>()
-        for (file in fileTree("$buildDir\\classes\\java\\main\\com\\sun")) {
-            files.add(file)
-            localPatches.put(file, file.absolutePath.replace("$buildDir\\classes\\java\\main\\", ""))
-        }
-
-        // Unzipping
-        URI uri = URI.create("jar:" + jar.archiveFile.get().asFile.toURI())
-        try  {
-            FileSystem fs = getFileSystem(uri)
-            for(file in files){
-                Path nf = fs.getPath(localPatches.get(file))
-                Files.copy(Paths.get(file.absolutePath), nf, StandardCopyOption.REPLACE_EXISTING)
-            }
-            fs.close()
-        }catch(Exception e){
-            e.printStackTrace()
-        }
-    }
-}
-
-FileSystem getFileSystem(URI key) throws Exception {
-    try {
-        return FileSystems.getFileSystem(key)
-    } catch (Exception e) {
-        try {
-            return FileSystems.newFileSystem(key, Collections.emptyMap())
-        } catch (Exception f) {
-            return FileSystems.getFileSystem(key)
-        }
-    }
-}
-
-tasks.named("jar") { finalizedBy("FXPatch") }

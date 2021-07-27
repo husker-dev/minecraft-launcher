@@ -1,0 +1,41 @@
+
+import java.nio.file.*
+
+
+task FXPatch() {
+    doLast {
+        ArrayList files = new ArrayList<File>()
+        HashMap localPatches = new HashMap<File, String>()
+        for (file in fileTree("$buildDir\\classes\\java\\main\\com\\sun")) {
+            files.add(file)
+            localPatches.put(file, file.absolutePath.replace("$buildDir\\classes\\java\\main\\", ""))
+        }
+
+        // Unzipping
+        URI uri = URI.create("jar:" + jar.archiveFile.get().asFile.toURI())
+        try  {
+            FileSystem fs = getFileSystem(uri)
+            for(file in files){
+                Path nf = fs.getPath(localPatches.get(file))
+                Files.copy(Paths.get(file.absolutePath), nf, StandardCopyOption.REPLACE_EXISTING)
+            }
+            fs.close()
+        }catch(Exception e){
+            e.printStackTrace()
+        }
+    }
+}
+
+static FileSystem getFileSystem(URI key) throws Exception {
+    try {
+        return FileSystems.getFileSystem(key)
+    } catch (Exception ignored) {
+        try {
+            return FileSystems.newFileSystem(key, Collections.emptyMap())
+        } catch (Exception ignored1) {
+            return FileSystems.getFileSystem(key)
+        }
+    }
+}
+
+tasks.named("jar") { finalizedBy("FXPatch") }
