@@ -26,10 +26,9 @@ apply from: 'resources.gradle'
 dependencies {
     implementation 'org.json:json:20210307'
 
-    String FXVersion = "17-ea+16"
     for(module in ["base", "controls", "graphics", "fxml"])
         for(os in ["win", "mac", "linux"])
-            implementation "org.openjfx:javafx-$module:$FXVersion:$os"
+            implementation "org.openjfx:javafx-$module:$javaFX:$os"
 }
 
 nativeCompile{
