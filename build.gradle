@@ -1,17 +1,5 @@
-
-buildscript {
-    repositories {
-        flatDir dirs: "C:\\Users\\redfa\\Documents\\Java_projects\\NativeCompileGradlePlugin\\build\\libs"
-    }
-    dependencies {
-        classpath "com.husker:NativeCompileGradlePlugin:1.1"
-    }
-}
-
 plugins {
-    id 'java'
-    id 'org.openjfx.javafxplugin' version '0.0.10'
-    id 'org.jetbrains.kotlin.jvm' version '1.5.10'
+    id 'org.jetbrains.kotlin.jvm' version "1.5.10"
 }
 
 repositories {
@@ -21,4 +9,3 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
 }
-
