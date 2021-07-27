@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="03a3ef4c-3959-4abf-b9d1-41bd6ab03a6d" name="Default Changelist" comment="Project structure updates">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/plugin">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="minecraft-launcher" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="minecraft-launcher" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="minecraft-launcher" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="KotlinMultiplatform">
+    <allAvailableExecutables />
+  </component>
+  <component name="ProjectId" id="1tf6wEtRayh5vD2j4gx6ylPRl5b" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NativeCompileGradlePlugin" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.13869625" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="project.kotlinCompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\src\main\resources\images\minecraft\v1_16\textures" />
+      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\src\main\resources\images\minecraft\v1_16\models" />
+      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\src\main\resources\images\minecraft\titles" />
+      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\src\main\resources\images\minecraft\v1_16" />
+      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\src\main\resources\images\minecraft\previews" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\app\src\main" />
+      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\app\src" />
+      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\src\main\resources" />
+      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\src\main\resources\images\minecraft\v17" />
+      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\src\main\resources\images\minecraft\v16" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.husker.minecraft.launcher.tools.fx.nodes" />
+      <recent name="com.husker.minecraft.launcher.app.animation" />
+      <recent name="com.sun.prism.d3d" />
+      <recent name="com.husker.minecraft.launcher.tools.fx.nodes.mesh.d3d" />
+      <recent name="com.husker.minecraft.launcher.tools.fx.nodes.mesh" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.husker.minecraft.launcher.tools" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sun.prism.impl" />
+      <recent name="com.sun.prism.es2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Launch">
+    <configuration name="Launch" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.husker.minecraft.launcher.Main" />
+      <module name="minecraft-launcher.app" />
+      <option name="VM_PARAMETERS" value="-XX:+UnlockExperimentalVMOptions -XX:+UnlockDiagnosticVMOptions -XX:+UseShenandoahGC -XX:ShenandoahGCMode=iu -XX:ConcGCThreads=4 -Xms2m -Xmx256m" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="minecraft-launcher [createConfig]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="createConfig" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="minecraft-launcher [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--stacktrace" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="minecraft-launcher:app [createConfig]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="createConfig" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Launch" />
+      <item itemvalue="Gradle.minecraft-launcher [jar]" />
+      <item itemvalue="Gradle.minecraft-launcher [createConfig]" />
+      <item itemvalue="Gradle.minecraft-launcher:app [createConfig]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.minecraft-launcher:app [createConfig]" />
+        <item itemvalue="Gradle.minecraft-launcher [createConfig]" />
+        <item itemvalue="Gradle.minecraft-launcher [jar]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="03a3ef4c-3959-4abf-b9d1-41bd6ab03a6d" name="Default Changelist" comment="" />
+      <created>1623148034751</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623148034751</updated>
+      <workItem from="1623148037122" duration="32786000" />
+      <workItem from="1623215668747" duration="6569000" />
+      <workItem from="1623317974123" duration="1181000" />
+      <workItem from="1623406969245" duration="1819000" />
+      <workItem from="1623411710732" duration="5143000" />
+      <workItem from="1623491362907" duration="966000" />
+      <workItem from="1623492476240" duration="2483000" />
+      <workItem from="1623574240699" duration="10068000" />
+      <workItem from="1623664567181" duration="1095000" />
+      <workItem from="1623688650884" duration="929000" />
+      <workItem from="1623754042868" duration="17396000" />
+      <workItem from="1623842077694" duration="3559000" />
+      <workItem from="1623923621929" duration="7839000" />
+      <workItem from="1623936658689" duration="6353000" />
+      <workItem from="1623951709261" duration="2159000" />
+      <workItem from="1624010269041" duration="8734000" />
+      <workItem from="1624099043474" duration="4349000" />
+      <workItem from="1624109714272" duration="149000" />
+      <workItem from="1624621135664" duration="8919000" />
+      <workItem from="1624701781510" duration="12311000" />
+      <workItem from="1624786842865" duration="4245000" />
+      <workItem from="1624816404480" duration="3971000" />
+      <workItem from="1624868463471" duration="30037000" />
+      <workItem from="1624982159736" duration="1452000" />
+      <workItem from="1624985284309" duration="5680000" />
+      <workItem from="1625052164398" duration="7563000" />
+      <workItem from="1625168884155" duration="999000" />
+      <workItem from="1625180295144" duration="875000" />
+      <workItem from="1625220763739" duration="26000" />
+      <workItem from="1625224284341" duration="19205000" />
+      <workItem from="1625309765259" duration="4825000" />
+      <workItem from="1625315870141" duration="14506000" />
+      <workItem from="1625391131026" duration="2260000" />
+      <workItem from="1625728849962" duration="31000" />
+      <workItem from="1625753914895" duration="12056000" />
+      <workItem from="1625830680020" duration="594000" />
+      <workItem from="1625855621044" duration="818000" />
+      <workItem from="1625901714411" duration="8847000" />
+      <workItem from="1626082538031" duration="9810000" />
+      <workItem from="1626129279519" duration="942000" />
+      <workItem from="1626166404269" duration="31255000" />
+      <workItem from="1626256658916" duration="32175000" />
+      <workItem from="1626346046849" duration="2350000" />
+      <workItem from="1626372972244" duration="3297000" />
+      <workItem from="1626428022185" duration="1821000" />
+      <workItem from="1626516137839" duration="18404000" />
+      <workItem from="1626602453285" duration="6459000" />
+      <workItem from="1626636817411" duration="598000" />
+      <workItem from="1626695613793" duration="7237000" />
+      <workItem from="1626722405237" duration="5610000" />
+      <workItem from="1626767191650" duration="20682000" />
+      <workItem from="1626864165064" duration="13363000" />
+      <workItem from="1626952056574" duration="15415000" />
+      <workItem from="1626995958235" duration="28000" />
+      <workItem from="1627037339989" duration="2261000" />
+      <workItem from="1627068843040" duration="8381000" />
+      <workItem from="1627122913317" duration="11140000" />
+      <workItem from="1627214181893" duration="14220000" />
+      <workItem from="1627233267665" duration="15639000" />
+      <workItem from="1627298325765" duration="14132000" />
+      <workItem from="1627342288532" duration="1443000" />
+      <workItem from="1627372769987" duration="3456000" />
+      <workItem from="1627378112986" duration="3567000" />
+    </task>
+    <task id="LOCAL-00001" summary="Module refactoring, DebugPanel fixes">
+      <created>1627377636506</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1627377636506</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Gradle build script fixes">
+      <created>1627377850608</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1627377850608</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Gradle build script fixes">
+      <created>1627377861685</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1627377861685</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Project structure updates">
+      <created>1627378281296</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1627378281296</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Project structure updates">
+      <created>1627378310703</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1627378310703</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Project structure updates">
+      <created>1627386310584</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1627386310585</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Module refactoring, DebugPanel fixes" />
+    <MESSAGE value="Gradle build script fixes" />
+    <MESSAGE value="Project structure updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project structure updates" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
