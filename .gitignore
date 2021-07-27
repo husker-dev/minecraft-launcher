@@ -1,4 +1,4 @@
 # Project exclude paths
 /.gradle/
-/app/build
-/plugin/build
+/launcher/build
+/bukkit-plugin/build

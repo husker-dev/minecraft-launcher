@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="326.0" prefWidth="466.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane fx:id="background_pane" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <AnchorPane id="tabs" fx:id="tabs" prefHeight="200.0" prefWidth="80.0" styleClass="base_panel" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <VBox id="top_tabs" alignment="TOP_CENTER" prefHeight="155.0" prefWidth="80.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <VBox id="bottom_tabs" alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="80.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="content" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="85.0" />
+      <AnchorPane fx:id="tab_title_pane" prefHeight="55.0" styleClass="base_panel" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label fx:id="tab_title_label" prefHeight="50.0" styleClass="tab_title" text="[default]" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+
+   </children>
+</AnchorPane>
