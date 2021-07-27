@@ -11,7 +11,6 @@ task FXPatch() {
             localPatches.put(file, file.absolutePath.replace("$buildDir\\classes\\java\\main\\", ""))
         }
 
-        // Unzipping
         URI uri = URI.create("jar:" + jar.archiveFile.get().asFile.toURI())
         try  {
             FileSystem fs = getFileSystem(uri)
