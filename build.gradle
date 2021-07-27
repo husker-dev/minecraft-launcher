@@ -1,6 +1,4 @@
 
-import java.nio.file.*
-
 buildscript {
     repositories {
         flatDir dirs: "C:\\Users\\redfa\\Documents\\Java_projects\\NativeCompileGradlePlugin\\build\\libs"
@@ -15,11 +13,6 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.10'
     id 'org.jetbrains.kotlin.jvm' version '1.5.10'
 }
-
-group 'com.husker.minecraft.launcher'
-version '1.0'
-
-
 
 repositories {
     mavenCentral()
