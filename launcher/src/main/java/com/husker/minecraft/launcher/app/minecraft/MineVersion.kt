@@ -36,9 +36,17 @@ abstract class MineVersion {
     }
 
     fun getBlockInstance(name : String) : Block {
-        if(!blocks.containsKey(name))
-            return ModelBlock(this, name)
-        return blocks[name]?.invoke() ?: DefaultBlock(this)
+        return getBlockInstance(name, Block.Side.values().associate { it to 15 }, emptyMap())
+    }
+
+    fun getBlockInstance(name : String, lights: Map<Block.Side, Int>, blockData: Map<String, String>) : Block {
+        val found = if(!blocks.containsKey(name))
+            ModelBlock(this, name)
+        else blocks[name]?.invoke() ?: DefaultBlock(this)
+
+        found.lights = lights
+        found.blockData = blockData
+        return found
     }
 
     class VersionTextureSource(var version: MineVersion): TextureSource(){

@@ -35,7 +35,8 @@ abstract class Block : Cloneable{
     }
 
     var renderQueuePos = 1
-    var lights = HashMap<Side, Int>()
+    var lights = mapOf<Side, Int>()
+    var blockData = mapOf<String, String>()
     private lateinit var cachedFilledSides: ArrayList<Side>
 
     private val frontTopLeft = Point3D(0.0, 1.0, 0.0)

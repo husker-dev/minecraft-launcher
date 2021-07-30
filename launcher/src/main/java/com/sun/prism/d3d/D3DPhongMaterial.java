@@ -76,17 +76,16 @@ class D3DPhongMaterial extends BasePhongMaterial implements PhongMaterial {
         maps[map.getType().ordinal()] = map;
     }
 
-    private Texture setupTexture(TextureMap map, boolean useMipmap) {
-        Image image = map.getImage();
-
-        Texture texture = (image == null) ? null : context.getResourceFactory().getCachedTexture(image, Texture.WrapMode.CLAMP_TO_EDGE, true);
-        if(texture != null) {
+    private Texture setupTexture(TextureMap map) {
+        Texture texture = null;
+        if(map.getImage() != null){
+            texture = context.getResourceFactory().getCachedTexture(map.getImage(), Texture.WrapMode.CLAMP_TO_EDGE, true);
             texture.setLinearFiltering(false);
             context.updateTexture(0, texture);
         }
-
         long hTexture = (texture != null) ? ((D3DTexture) texture).getNativeTextureObject() : 0;
         context.setMap(nativeHandle, map.getType().ordinal(), hTexture);
+
         return texture;
     }
 
@@ -101,9 +100,7 @@ class D3DPhongMaterial extends BasePhongMaterial implements PhongMaterial {
                     continue;
                 }
             }
-            // Enable mipmap if map is diffuse or self illum.
-            boolean useMipmap = (i == PhongMaterial.DIFFUSE) || (i == PhongMaterial.SELF_ILLUM);
-            texture = setupTexture(maps[i], useMipmap);
+            texture = setupTexture(maps[i]);
             maps[i].setTexture(texture);
             maps[i].setDirty(false);
             if (maps[i].getImage() != null && texture == null) {

@@ -82,14 +82,14 @@ class ES2PhongMaterial extends BasePhongMaterial implements PhongMaterial {
         maps[map.getType().ordinal()] = map;
     }
 
-    private Texture setupTexture(TextureMap map, boolean useMipmap) {
-        Image image = map.getImage();
-        Texture texture = (image == null) ? null : context.getResourceFactory().getCachedTexture(image, Texture.WrapMode.REPEAT, useMipmap);
-        if(texture != null) {
+    private Texture setupTexture(TextureMap map) {
+        if(map.getImage() != null){
+            Texture texture = context.getResourceFactory().getCachedTexture(map.getImage(), Texture.WrapMode.CLAMP_TO_EDGE, true);
             texture.setLinearFiltering(false);
             context.updateTexture(0, texture);
+            return texture;
         }
-        return texture;
+        return null;
     }
 
     @Override
@@ -102,9 +102,7 @@ class ES2PhongMaterial extends BasePhongMaterial implements PhongMaterial {
                     continue;
                 }
             }
-            // Enable mipmap if platform isn't embedded and map is diffuse or self illum
-            boolean useMipmap = (!PlatformUtil.isEmbedded()) && (i == PhongMaterial.DIFFUSE || i == PhongMaterial.SELF_ILLUM);
-            texture = setupTexture(maps[i], useMipmap);
+            texture = setupTexture(maps[i]);
             maps[i].setTexture(texture);
             maps[i].setDirty(false);
             if (maps[i].getImage() != null && texture == null) {

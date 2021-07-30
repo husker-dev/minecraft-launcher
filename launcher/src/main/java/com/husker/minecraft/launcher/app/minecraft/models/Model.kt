@@ -66,7 +66,7 @@ class Model(private var source: TextureSource) {
         return instance
     }
 
-    fun getTextures(lights: HashMap<Block.Side, Int>): Array<ModelTexture>{
+    fun getTextures(lights: Map<Block.Side, Int>): Array<ModelTexture>{
         if(cachedTextures.size > 0)
             return cachedTextures.toTypedArray()
 
