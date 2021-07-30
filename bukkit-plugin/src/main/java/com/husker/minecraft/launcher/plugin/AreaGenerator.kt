@@ -10,7 +10,7 @@ import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 
-class AreaGenerator(sender: CommandSender, plugin: Plugin, x: Int, y: Int, z: Int, radius: Int, sky: Boolean) {
+class AreaGenerator(sender: CommandSender, plugin: Plugin, x: Int, y: Int, z: Int, radius: Int, private val sky: Boolean) {
 
     init {
         val content = JSONObject()
@@ -42,12 +42,12 @@ class AreaGenerator(sender: CommandSender, plugin: Plugin, x: Int, y: Int, z: In
                             .put(lz - z)
                         )
                         .put("l", JSONArray()
-                            .put(getBlock(lx, ly, lz - 1).lightFromBlocks)  // Front
-                            .put(getBlock(lx - 1, ly, lz).lightFromBlocks)  // Left
-                            .put(getBlock(lx + 1, ly, lz).lightFromBlocks)  // Right
-                            .put(getBlock(lx, ly, lz + 1).lightFromBlocks)  // Back
-                            .put(getBlock(lx, ly + 1, lz).lightFromBlocks)  // Top
-                            .put(getBlock(lx, ly - 1, lz).lightFromBlocks)  // Bottom
+                            .put(light(getBlock(lx, ly, lz - 1)))  // Front
+                            .put(light(getBlock(lx - 1, ly, lz)))  // Left
+                            .put(light(getBlock(lx + 1, ly, lz)))  // Right
+                            .put(light(getBlock(lx, ly, lz + 1)))  // Back
+                            .put(light(getBlock(lx, ly + 1, lz)))  // Top
+                            .put(light(getBlock(lx, ly - 1, lz)))  // Bottom
                         )
                     if("[" in block.blockData.toString()) {
                         val blockData = JSONObject()
@@ -87,4 +87,10 @@ class AreaGenerator(sender: CommandSender, plugin: Plugin, x: Int, y: Int, z: In
 
     private fun getBlock(x: Int, y: Int, z: Int): Block = Bukkit.getWorlds()[0].getBlockAt(x, y, z)
 
+    private fun light(block: Block): Byte{
+        return if(sky)
+            block.lightLevel
+        else
+            block.lightFromBlocks
+    }
 }
