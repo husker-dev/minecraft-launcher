@@ -41,6 +41,7 @@ class ModelTexture(
             if(!animationTimers.containsKey(period)){
                 var frame = 0
                 animationListeners[period] = arrayListOf()
+
                 //    Period = 1 sec / 20 ticks * speed
                 //    50 * speed
                 animationTimers[period] = LauncherTimer.create(0, 50 * period.toLong()){

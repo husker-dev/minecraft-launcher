@@ -3,6 +3,7 @@ package com.husker.minecraft.launcher.app.minecraft.versions
 import com.husker.minecraft.launcher.app.Resources
 import com.husker.minecraft.launcher.app.minecraft.MineVersion
 import com.husker.minecraft.launcher.app.minecraft.blocks.impl.AirBlock
+import com.husker.minecraft.launcher.app.minecraft.blocks.impl.AxisBlock
 import com.husker.minecraft.launcher.app.minecraft.blocks.impl.FireBlock
 import com.husker.minecraft.launcher.app.minecraft.blocks.impl.GrassBlock
 import com.husker.minecraft.launcher.app.minecraft.scene.PreviewParameters
@@ -30,14 +31,18 @@ open class V16 : MineVersion() {
         // Sprouds
         addBlock("nether_sprouts") { GrassBlock(this, "nether_sprouts") }
 
+        // Portals
+        addBlock("nether_portal") {AxisBlock(this, "nether_portal")}
     }
 
     override fun getPreviewColor(): Color = Color.web("#380E0C")
 
     /*
     override fun getPreviewParameters(): PreviewParameters {
-        return PreviewParameters(v1_17.getPreviewColor()) { Resources.json("/minecraft/v17/preview.json") }
+        return PreviewParameters(v1_17.getPreviewColor()) { V17::class.java.getResourceAsStream("/minecraft/v17/preview.map")!! }
     }
 
      */
+
+
 }

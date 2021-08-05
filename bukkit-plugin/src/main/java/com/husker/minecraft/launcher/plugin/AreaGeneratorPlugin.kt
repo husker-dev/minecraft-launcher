@@ -6,15 +6,36 @@ import org.bukkit.command.CommandSender
 import org.bukkit.command.TabCompleter
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
+import java.lang.UnsupportedOperationException
 
 class AreaGeneratorPlugin : JavaPlugin() {
 
     override fun onEnable() {
         getCommand("area")!!.setExecutor{ sender, _, _, args ->
-            when (args.size) {
-                5 -> AreaGenerator(sender, this, args[0].toInt(), args[1].toInt(), args[2].toInt(), args[3].toInt(), args[4] == "true")
-                4 -> AreaGenerator(sender, this, args[0].toInt(), args[1].toInt(), args[2].toInt(), args[3].toInt(), false)
-                else -> sender.sendMessage("${ChatColor.RED}Usage: /area [x] [y] [z] [radius] [sky_light]")
+            try {
+                when (args.size) {
+                    5 -> AreaGenerator(
+                        sender,
+                        this,
+                        args[0].toInt(),
+                        args[1].toInt(),
+                        args[2].toInt(),
+                        args[3].toInt(),
+                        args[4] == "true"
+                    )
+                    4 -> AreaGenerator(
+                        sender,
+                        this,
+                        args[0].toInt(),
+                        args[1].toInt(),
+                        args[2].toInt(),
+                        args[3].toInt(),
+                        false
+                    )
+                    else -> sender.sendMessage("${ChatColor.RED}Usage: /area [x] [y] [z] [radius] [sky_light]")
+                }
+            }catch (e: UnsupportedOperationException){
+                sender.sendMessage("${ChatColor.RED}Too large radius or too many blocks!")
             }
             return@setExecutor true
         }

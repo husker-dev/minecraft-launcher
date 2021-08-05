@@ -26,7 +26,7 @@ abstract class MineVersion {
 
     open fun getLogo() : Image = Image("/minecraft/$versionTag/logo.png")
     open fun getPreviewParameters() : PreviewParameters = PreviewParameters(getPreviewColor()) {
-        Resources.json("/minecraft/$versionTag/preview.json")
+        MineVersion::class.java.getResourceAsStream("/minecraft/$versionTag/preview.map")!!
     }
 
     abstract fun getPreviewColor() : Color
@@ -46,6 +46,7 @@ abstract class MineVersion {
 
         found.lights = lights
         found.blockData = blockData
+        found.onInitialize()
         return found
     }
 

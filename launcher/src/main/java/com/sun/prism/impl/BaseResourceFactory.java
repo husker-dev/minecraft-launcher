@@ -46,8 +46,6 @@ public abstract class BaseResourceFactory implements ResourceFactory {
     private final WeakHashMap<ResourceFactoryListener,Boolean> listenerMap =
             new WeakHashMap<ResourceFactoryListener,Boolean>();
 
-    private boolean disposed = false;
-
     private Texture regionTexture;
     private Texture glyphTexture;
     private boolean superShaderAllowed;
@@ -78,7 +76,7 @@ public abstract class BaseResourceFactory implements ResourceFactory {
     }
 
     @Override public boolean isDeviceReady() {
-        return !isDisposed();
+        return true;
     }
 
     protected void clearTextureCache() {
@@ -99,27 +97,14 @@ public abstract class BaseResourceFactory implements ResourceFactory {
         return listenerMap.keySet().toArray(new ResourceFactoryListener[0]);
     }
 
-    private void disposeResources() {
-        clampTexCache.clear();
-        repeatTexCache.clear();
-        mipmapTexCache.clear();
-
-        if (regionTexture != null) {
-            regionTexture.dispose();
-            regionTexture = null;
-        }
-        if (glyphTexture != null) {
-            glyphTexture.dispose();
-            glyphTexture = null;
-        }
-    }
-
     /**
      * Called when the factory is reset. Some resources (based in vram) could
      * be lost.
      */
     protected void notifyReset() {
-        disposeResources();
+        clampTexCache.clear();
+        repeatTexCache.clear();
+        mipmapTexCache.clear();
 
         // Iterate over a *copy* of the key set because listeners may remove
         // themselves during the callback
@@ -131,10 +116,13 @@ public abstract class BaseResourceFactory implements ResourceFactory {
         }
     }
 
-    @Override
-    public void dispose() {
-        disposeResources();
-        disposed = true;
+    /**
+     * Called when the factory's data is released
+     */
+    protected void notifyReleased() {
+        clampTexCache.clear();
+        repeatTexCache.clear();
+        mipmapTexCache.clear();
 
         // Iterate over a *copy* of the key set because listeners may remove
         // themselves during the callback
@@ -160,21 +148,17 @@ public abstract class BaseResourceFactory implements ResourceFactory {
 
     @Override
     public Texture getCachedTexture(Image image, WrapMode wrapMode) {
-        if (checkDisposed()) return null;
-
        return  getCachedTexture(image, wrapMode, false);
     }
 
     @Override
     public Texture getCachedTexture(Image image, WrapMode wrapMode, boolean useMipmap) {
-        if (checkDisposed()) return null;
-
         if (image == null) {
             throw new IllegalArgumentException("Image must be non-null");
         }
         Map<Image,Texture> texCache;
         if (wrapMode == WrapMode.CLAMP_TO_EDGE) {
-            // Mipmap supported with CLAMP mode in current implementation!!
+            // Mipmap supported with CLAMP mode in current implementation
             texCache = clampTexCache;
         } else if (wrapMode == WrapMode.REPEAT) {
             texCache = useMipmap ? mipmapTexCache : repeatTexCache;
@@ -250,17 +234,12 @@ public abstract class BaseResourceFactory implements ResourceFactory {
 
     @Override
     public Texture createTexture(Image image, Usage usageHint, WrapMode wrapMode) {
-        if (checkDisposed()) return null;
-
         return createTexture(image, usageHint, wrapMode, false);
     }
 
     @Override
     public Texture createTexture(Image image, Usage usageHint, WrapMode wrapMode,
             boolean useMipmap) {
-
-        if (checkDisposed()) return null;
-
         PixelFormat format = image.getPixelFormat();
         int w = image.getWidth();
         int h = image.getHeight();
@@ -292,8 +271,6 @@ public abstract class BaseResourceFactory implements ResourceFactory {
 
     @Override
     public void setRegionTexture(Texture texture) {
-        if (checkDisposed()) return;
-
         regionTexture = texture;
         superShaderAllowed = PrismSettings.superShader &&
                              regionTexture != null &&
@@ -307,8 +284,6 @@ public abstract class BaseResourceFactory implements ResourceFactory {
 
     @Override
     public void setGlyphTexture(Texture texture) {
-        if (checkDisposed()) return;
-
         glyphTexture = texture;
         superShaderAllowed = PrismSettings.superShader &&
                              regionTexture != null &&
@@ -356,22 +331,4 @@ public abstract class BaseResourceFactory implements ResourceFactory {
                 throw new InternalError("Unrecognized wrap mode: "+mode);
         }
     }
-
-    @Override
-    public boolean isDisposed() {
-        return disposed;
-    }
-
-    protected boolean checkDisposed() {
-        if (PrismSettings.verbose && isDisposed()) {
-            try {
-                throw new IllegalStateException("attempt to use resource after factory is disposed");
-            } catch (RuntimeException ex) {
-                ex.printStackTrace();
-            }
-        }
-
-        return isDisposed();
-    }
-
 }

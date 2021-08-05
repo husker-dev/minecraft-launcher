@@ -10,6 +10,11 @@ task FXPatch() {
             files.add(file)
             localPatches.put(file, file.absolutePath.replace("$buildDir\\classes\\java\\main\\", ""))
         }
+        println(projectDir)
+        for (file in fileTree("$projectDir\\custom_jfx")) {
+            files.add(file)
+            localPatches.put(file, file.absolutePath.replace("$projectDir\\custom_jfx\\", ""))
+        }
 
         URI uri = URI.create("jar:" + jar.archiveFile.get().asFile.toURI())
         try  {

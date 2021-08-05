@@ -63,59 +63,35 @@ class PreviewScene : SubScene(Group(), 0.0, 0.0, true, SceneAntialiasing.BALANCE
         }
     }
 
-    fun rotate(x : Double, y : Double){
+    private fun rotate(x : Double, y : Double){
         rotationX.angle = x
         rotationY.angle = y
     }
 
-    fun clear(){
+    private fun clear(){
         blocks.clear()
     }
 
-    fun applyJSON(version: MineVersion, content: JSONObject){
+    fun applyVersionMap(version: MineVersion){
         clear()
-        val area = content.getJSONArray("area")
-        val blockNamesMap = content.getJSONObject("names_map")
-        val blockDataKeyMap = content.getJSONObject("data_keys_map")
-        val blockDataValuesMap = content.getJSONObject("data_values_map")
 
-        for(i in 0 until area.length()){
-            try {
-                val blockInfo = area.getJSONObject(i)
-                val name = blockNamesMap.getString(blockInfo.getInt("n").toString())
-
-                val positionInfo = blockInfo.getJSONArray("p")
-                val lightInfo = blockInfo.getJSONArray("l")
-                var blockData = mapOf<String, String>()
-                if(blockInfo.has("d")) {
-                    blockData = blockInfo.getJSONObject("d").toMap().map {
-                        blockDataKeyMap.getString(it.key) to blockDataValuesMap.getString(it.value.toString())
-                    }.toMap()
-                }
-
-                val lights = hashMapOf(
-                    Block.Side.Face to lightInfo.getInt(0),
-                    Block.Side.Left to lightInfo.getInt(2), // Left and Right are reversed
-                    Block.Side.Right to lightInfo.getInt(1),
-                    Block.Side.Back to lightInfo.getInt(3),
-                    Block.Side.Top to lightInfo.getInt(4),
-                    Block.Side.Bottom to lightInfo.getInt(5)
-                )
-
+        try {
+            MapReader(version.getPreviewParameters().map.invoke()){ name, point, lights, data ->
                 addBlock(
-                    version.getBlockInstance(name, lights, blockData),
-                    positionInfo.getInt(0),
-                    positionInfo.getInt(1),
-                    positionInfo.getInt(2)
+                    version.getBlockInstance(name, lights, data),
+                    point.x.toInt(),
+                    point.y.toInt(),
+                    point.z.toInt()
                 )
-            }catch (e: Exception){
-                e.printStackTrace()
             }
+        }catch (e: Exception){
+            e.printStackTrace()
         }
+
         recalculateBlocks()
     }
 
-    fun addBlock(block: Block, x: Int, y: Int, z: Int){
+    private fun addBlock(block: Block, x: Int, y: Int, z: Int){
         val sceneBlock = SceneBlock(block, -x, y, z)
 
         if(!blocksCoordinates.containsKey(x))
@@ -128,7 +104,7 @@ class PreviewScene : SubScene(Group(), 0.0, 0.0, true, SceneAntialiasing.BALANCE
         blocks.add(sceneBlock)
     }
 
-    fun recalculateBlocks(){
+    private fun recalculateBlocks(){
         Platform.runLater {
             content.children.removeIf { content.children.indexOf(it) > 0 }
             content.children.add(AmbientLight(Color(1.0, 1.0, 1.0, 1.0)))
@@ -201,7 +177,7 @@ class PreviewScene : SubScene(Group(), 0.0, 0.0, true, SceneAntialiasing.BALANCE
         object : AnimationTimer() {
             override fun handle(now: Long) {
                 synchronized(nodes) {
-                    val part = 40
+                    val part = 50
                     val subArray = ArrayList(nodes.subList(0, min(nodes.size, part)))
                     nodes.removeAll(subArray)
 

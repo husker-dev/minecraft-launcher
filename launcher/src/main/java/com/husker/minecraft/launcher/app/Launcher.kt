@@ -7,7 +7,6 @@ import com.husker.minecraft.launcher.tools.fx.LauncherTimer
 import javafx.application.Application
 import javafx.stage.Stage
 import javafx.stage.WindowEvent
-import java.lang.management.GarbageCollectorMXBean
 import java.lang.management.ManagementFactory
 
 
@@ -26,6 +25,10 @@ class Launcher : Application() {
 
         @JvmStatic
         var shutdownListeners = arrayListOf<Runnable>()
+
+        @JvmStatic fun onClose(){
+
+        }
     }
 
     override fun start(stage: Stage?) {
@@ -43,14 +46,15 @@ class Launcher : Application() {
 
         stage.scene.window.addEventFilter(WindowEvent.WINDOW_CLOSE_REQUEST){
             shutdownListeners.forEach { it.run() }
+            Thread{ onClose()}.start()
         }
 
         if(ManagementFactory.getGarbageCollectorMXBeans()[0].name.contains("Shenandoah")) {
-            LauncherTimer.create(1000) {
-                System.gc()
-            }
+            LauncherTimer.create(1000) { System.gc() }
         }
 
         stage.show()
     }
+
+
 }

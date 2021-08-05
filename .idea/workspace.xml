@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a3ef4c-3959-4abf-b9d1-41bd6ab03a6d" name="Default Changelist" comment="OpenGL graphics fix. New preview file type. Blocks data">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="03a3ef4c-3959-4abf-b9d1-41bd6ab03a6d" name="Default Changelist" comment="Sky light">
+      <change afterPath="$PROJECT_DIR$/launcher/custom_jfx/prism_d3d.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/blocks/impl/AxisBlock.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/scene/MapReader.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/launcher/src/main/java/com/sun/prism/FXRenderParameters.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/launcher/src/main/resources/minecraft/v16/blocks.data" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/launcher/src/main/resources/minecraft/v16/preview.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/launcher/src/main/resources/minecraft/v17/preview.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_07_2021_11_57_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_07_2021_11_57__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bukkit-plugin/build/classes/kotlin/main/META-INF/plugin.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bukkit-plugin/build/classes/kotlin/main/com/husker/minecraft/launcher/plugin/AreaGenerator.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bukkit-plugin/build/classes/kotlin/main/com/husker/minecraft/launcher/plugin/AreaGeneratorPlugin.class" beforeDir="false" />
@@ -95,6 +104,22 @@
       <change beforePath="$PROJECT_DIR$/bukkit-plugin/build/libs/plugin-1.0.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bukkit-plugin/build/resources/main/plugin.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bukkit-plugin/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bukkit-plugin/src/main/java/com/husker/minecraft/launcher/plugin/AreaGenerator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/bukkit-plugin/src/main/java/com/husker/minecraft/launcher/plugin/AreaGenerator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bukkit-plugin/src/main/java/com/husker/minecraft/launcher/plugin/AreaGeneratorPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/bukkit-plugin/src/main/java/com/husker/minecraft/launcher/plugin/AreaGeneratorPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/fx_patch.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/fx_patch.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/Launcher.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/Launcher.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/Block.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/Block.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/MineVersion.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/MineVersion.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/models/ModelTexture.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/models/ModelTexture.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/scene/PreviewParameters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/scene/PreviewParameters.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/scene/PreviewScene.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/scene/PreviewScene.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/versions/V16.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/minecraft/versions/V16.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/scenes/BaseScene.kt" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/husker/minecraft/launcher/app/scenes/BaseScene.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/src/main/java/com/sun/prism/d3d/D3DPhongMaterial.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/sun/prism/d3d/D3DPhongMaterial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/src/main/java/com/sun/prism/es2/ES2PhongMaterial.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/launcher/src/main/java/com/sun/prism/impl/BaseResourceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/launcher/src/main/java/com/sun/prism/impl/BaseResourceFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +146,9 @@
         <task path="$PROJECT_DIR$/bukkit-plugin">
           <activation />
         </task>
+        <task path="$PROJECT_DIR$/launcher">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -132,11 +160,6 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="minecraft-launcher" type="f1a62948:ProjectNode" />
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="minecraft-launcher" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -155,6 +178,31 @@
                 <item name="bukkit-plugin" type="2d1252cf:ModuleNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="minecraft-launcher" type="f1a62948:ProjectNode" />
+                <item name="launcher" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="minecraft-launcher" type="f1a62948:ProjectNode" />
+                <item name="launcher" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="minecraft-launcher" type="f1a62948:ProjectNode" />
+                <item name="launcher" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="minecraft-launcher" type="f1a62948:ProjectNode" />
+                <item name="launcher" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="native" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -187,6 +235,9 @@
   <component name="KotlinMultiplatform">
     <allAvailableExecutables />
   </component>
+  <component name="NamedScopeManager">
+    <scope name="Unnamed" pattern="" />
+  </component>
   <component name="ProjectId" id="1tf6wEtRayh5vD2j4gx6ylPRl5b" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -202,7 +253,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/launcher/src/main/resources/minecraft/v16" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/jfx3d" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
@@ -213,11 +264,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\launcher\custom_jfx" />
+      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\launcher\src\main\java\com\sun\prism\d3d" />
+      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\launcher\src\main\java\com\sun" />
       <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\launcher\src\main\resources\minecraft\v16" />
       <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\launcher\src\main\resources\minecraft\v17" />
-      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\src\main\resources\images\minecraft\v1_16\textures" />
-      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\src\main\resources\images\minecraft\v1_16\models" />
-      <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\src\main\resources\images\minecraft\titles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\redfa\Documents\Java_projects\minecraft-launcher\app\src\main" />
@@ -238,10 +289,11 @@
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.sun.prism.impl" />
+      <recent name="com.sun.prism.d3d" />
       <recent name="com.sun.prism.es2" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.minecraft-launcher:bukkit-plugin [jar]">
+  <component name="RunManager" selected="Application.Launch">
     <configuration name="Launch" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-11" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -252,23 +304,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="minecraft-launcher [createConfig]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="minecraft-launcher:bukkit-plugin [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/bukkit-plugin" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -276,49 +315,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="createConfig" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="minecraft-launcher [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--stacktrace" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="minecraft-launcher:app [createConfig]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="createConfig" />
+            <option value="build" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -349,19 +346,84 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="minecraft-launcher:launcher [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/launcher" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="minecraft-launcher:launcher [compile]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/launcher" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="compile" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="minecraft-launcher:launcher [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/launcher" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.Launch" />
-      <item itemvalue="Gradle.minecraft-launcher [jar]" />
-      <item itemvalue="Gradle.minecraft-launcher [createConfig]" />
-      <item itemvalue="Gradle.minecraft-launcher:app [createConfig]" />
       <item itemvalue="Gradle.minecraft-launcher:bukkit-plugin [jar]" />
+      <item itemvalue="Gradle.minecraft-launcher:launcher [jar]" />
+      <item itemvalue="Gradle.minecraft-launcher:launcher [compile]" />
+      <item itemvalue="Gradle.minecraft-launcher:launcher [build]" />
+      <item itemvalue="Gradle.minecraft-launcher:bukkit-plugin [build]" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.minecraft-launcher:bukkit-plugin [jar]" />
-        <item itemvalue="Gradle.minecraft-launcher:app [createConfig]" />
-        <item itemvalue="Gradle.minecraft-launcher [createConfig]" />
-        <item itemvalue="Gradle.minecraft-launcher [jar]" />
+        <item itemvalue="Gradle.minecraft-launcher:bukkit-plugin [build]" />
+        <item itemvalue="Gradle.minecraft-launcher:launcher [compile]" />
+        <item itemvalue="Gradle.minecraft-launcher:launcher [jar]" />
+        <item itemvalue="Gradle.minecraft-launcher:launcher [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -436,7 +498,17 @@
       <workItem from="1627342288532" duration="1443000" />
       <workItem from="1627372769987" duration="3456000" />
       <workItem from="1627378112986" duration="8625000" />
-      <workItem from="1627638306796" duration="8811000" />
+      <workItem from="1627638306796" duration="22159000" />
+      <workItem from="1627730395995" duration="6605000" />
+      <workItem from="1627826561950" duration="2949000" />
+      <workItem from="1627849943443" duration="2779000" />
+      <workItem from="1627890369211" duration="230000" />
+      <workItem from="1627907973532" duration="4036000" />
+      <workItem from="1627985016431" duration="7998000" />
+      <workItem from="1628023753608" duration="1386000" />
+      <workItem from="1628081534927" duration="18114000" />
+      <workItem from="1628109538017" duration="4183000" />
+      <workItem from="1628154591431" duration="1700000" />
     </task>
     <task id="LOCAL-00001" summary="Module refactoring, DebugPanel fixes">
       <created>1627377636506</created>
@@ -515,7 +587,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627647080674</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Sky light">
+      <created>1627647487049</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1627647487049</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,7 +618,8 @@
     <MESSAGE value="Gradle build script fixes" />
     <MESSAGE value="Project structure updates" />
     <MESSAGE value="OpenGL graphics fix. New preview file type. Blocks data" />
-    <option name="LAST_COMMIT_MESSAGE" value="OpenGL graphics fix. New preview file type. Blocks data" />
+    <MESSAGE value="Sky light" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sky light" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

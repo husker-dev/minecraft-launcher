@@ -25,18 +25,15 @@
 
 package com.sun.prism.d3d;
 
-import com.sun.prism.Image;
-import com.sun.prism.PhongMaterial;
-import com.sun.prism.Texture;
-import com.sun.prism.TextureMap;
-import com.sun.prism.impl.BasePhongMaterial;
-import com.sun.prism.impl.Disposer;
 import com.sun.javafx.logging.PlatformLogger;
+import com.sun.prism.*;
+import com.sun.prism.impl.BaseGraphicsResource;
+import com.sun.prism.impl.Disposer;
 
 /**
  * TODO: 3D - Need documentation
  */
-class D3DPhongMaterial extends BasePhongMaterial implements PhongMaterial {
+class D3DPhongMaterial extends BaseGraphicsResource implements PhongMaterial {
 
     static int count = 0;
 
@@ -79,8 +76,8 @@ class D3DPhongMaterial extends BasePhongMaterial implements PhongMaterial {
     private Texture setupTexture(TextureMap map) {
         Texture texture = null;
         if(map.getImage() != null){
-            texture = context.getResourceFactory().getCachedTexture(map.getImage(), Texture.WrapMode.CLAMP_TO_EDGE, true);
-            texture.setLinearFiltering(false);
+            texture = context.getResourceFactory().getCachedTexture(map.getImage(), Texture.WrapMode.CLAMP_TO_EDGE, FXRenderParameters.getMipmap());
+            texture.setLinearFiltering(FXRenderParameters.getLinearFiltering());
             context.updateTexture(0, texture);
         }
         long hTexture = (texture != null) ? ((D3DTexture) texture).getNativeTextureObject() : 0;
@@ -93,7 +90,6 @@ class D3DPhongMaterial extends BasePhongMaterial implements PhongMaterial {
     public void lockTextureMaps() {
         for (int i = 0; i < MAX_MAP_TYPE; i++) {
             Texture texture = maps[i].getTexture();
-
             if (!maps[i].isDirty() && texture != null) {
                 texture.lock();
                 if (!texture.isSurfaceLost()) {
@@ -108,7 +104,6 @@ class D3DPhongMaterial extends BasePhongMaterial implements PhongMaterial {
                 PlatformLogger.getLogger(logname).warning(
                         "Warning: Low on texture resources. Cannot create texture.");
             }
-
         }
     }
 
@@ -117,14 +112,10 @@ class D3DPhongMaterial extends BasePhongMaterial implements PhongMaterial {
         for (int i = 0; i < MAX_MAP_TYPE; i++) {
             Texture texture = maps[i].getTexture();
             context.updateTexture(0, texture);
-            if (texture != null)
+            if (texture != null) {
                 texture.unlock();
+            }
         }
-    }
-
-    @Override
-    public boolean isValid() {
-        return !context.isDisposed();
     }
 
     @Override

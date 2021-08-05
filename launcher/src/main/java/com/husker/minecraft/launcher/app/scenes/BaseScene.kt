@@ -154,7 +154,7 @@ class BaseScene : ResourceScene("base.fxml") {
 
         backgroundPane.background = Background(BackgroundFill(parameters.color, CornerRadii(0.0), Insets(0.0, 0.0, 0.0, 0.0)))
         Thread {
-            previewScene.applyJSON(version, parameters.json.invoke())
+            previewScene.applyVersionMap(version)
         }.start()
 
     }

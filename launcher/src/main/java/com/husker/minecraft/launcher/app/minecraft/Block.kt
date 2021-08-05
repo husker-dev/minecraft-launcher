@@ -51,6 +51,8 @@ abstract class Block : Cloneable{
 
     protected abstract fun getTextures() : Array<ModelTexture>
 
+    open fun onInitialize(){}
+
     open fun getFilledSides() : Array<Side>{
         if(!this::cachedFilledSides.isInitialized){
             cachedFilledSides = arrayListOf()

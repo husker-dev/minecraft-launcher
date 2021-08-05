@@ -1,25 +1,24 @@
 package com.husker.minecraft.launcher.plugin
 
 
-import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.block.Block
 import org.bukkit.command.CommandSender
+import org.bukkit.entity.Entity
 import org.bukkit.plugin.Plugin
-import org.json.JSONArray
-import org.json.JSONObject
 import java.io.File
+import java.lang.UnsupportedOperationException
+import java.nio.charset.StandardCharsets
 
-class AreaGenerator(sender: CommandSender, plugin: Plugin, x: Int, y: Int, z: Int, radius: Int, private val sky: Boolean) {
+class AreaGenerator(private val sender: CommandSender, plugin: Plugin, x: Int, y: Int, z: Int, radius: Int, private val sky: Boolean) {
 
     init {
-        val content = JSONObject()
-        val area = JSONArray()
-        content.put("area", area)
+        val content = ByteWriter()
+        val blocks = ByteWriter()
 
-        val blockNamesMap = arrayListOf<String>()
-        val blockDataKeyMap = arrayListOf<String>()
-        val blockDataValuesMap = arrayListOf<String>()
+        val blockNamesSet = CachedHashSet<String>()
+        val blockDataKeySet = CachedHashSet<String>()
+        val blockDataValuesSet = CachedHashSet<String>()
 
         for(lx in x-radius..x+radius){
             for(ly in y-radius..y+radius){
@@ -27,70 +26,131 @@ class AreaGenerator(sender: CommandSender, plugin: Plugin, x: Int, y: Int, z: In
                     val block = getBlock(lx, ly, lz)
                     val name = block.toString().split("data=Block{")[1].split(":")[1].split("}")[0]
 
-                    if(name == "air")
+                    if(name == "air" || name == "void_air")
                         continue
 
-                    if(name !in blockNamesMap)
-                        blockNamesMap.add(name)
-                    val nameId = blockNamesMap.indexOf(name)
+                    val info = ByteWriter()
 
-                    val blockInfo = JSONObject()
-                        .put("n", nameId)
-                        .put("p", JSONArray()
-                            .put(lx - x)
-                            .put(ly - y)
-                            .put(lz - z)
-                        )
-                        .put("l", JSONArray()
-                            .put(light(getBlock(lx, ly, lz - 1)))  // Front
-                            .put(light(getBlock(lx - 1, ly, lz)))  // Left
-                            .put(light(getBlock(lx + 1, ly, lz)))  // Right
-                            .put(light(getBlock(lx, ly, lz + 1)))  // Back
-                            .put(light(getBlock(lx, ly + 1, lz)))  // Top
-                            .put(light(getBlock(lx, ly - 1, lz)))  // Bottom
-                        )
+                    // Name
+                    info.addInt(blockNamesSet.addAndGetIndex(name))
+
+                    // Coordinates
+                    info.addInt(lx - (x-radius))    // X
+                    info.addInt(ly - (y-radius))    // Y
+                    info.addInt(lz - (z-radius))    // Z
+
+                    // Light
+                    info.addInt(lightPairAsInt(getBlock(lx, ly, lz - 1), getBlock(lx, ly, lz + 1)))    // Front, Back
+                    info.addInt(lightPairAsInt(getBlock(lx + 1, ly, lz), getBlock(lx - 1, ly, lz)))    // Right, Left
+                    info.addInt(lightPairAsInt(getBlock(lx, ly + 1, lz), getBlock(lx, ly - 1, lz)))    // Top, Bottom
+
+                    // Meta
                     if("[" in block.blockData.toString()) {
-                        val blockData = JSONObject()
                         for (dataPair in block.blockData.toString().split("[")[1].split("]")[0].split(",")) {
                             val data = dataPair.split("=")
-                            val key = data[0]
-                            val value = data[1]
 
-                            if(key !in blockDataKeyMap)
-                                blockDataKeyMap.add(key)
-                            if(value !in blockDataValuesMap)
-                                blockDataValuesMap.add(value)
-                            val keyIndex = blockDataKeyMap.indexOf(key)
-                            val valueIndex = blockDataValuesMap.indexOf(value)
-
-                            blockData.put(keyIndex.toString(), valueIndex)
+                            info.addInt(blockDataKeySet.addAndGetIndex(data[0]))
+                            info.addInt(blockDataValuesSet.addAndGetIndex(data[1]))
                         }
-                        blockInfo.put("d", blockData)
                     }
 
-                    area.put(blockInfo)
+                    blocks.addBytes(info.toByteList())
+                    if(lx != x+radius || ly != y+radius || lz!= z+radius)
+                        blocks.separate()
                 }
             }
         }
 
-        content.put("names_map", blockNamesMap.associateBy { blockNamesMap.indexOf(it) })
-        content.put("data_keys_map", blockDataKeyMap.associateBy { blockDataKeyMap.indexOf(it) })
-        content.put("data_values_map", blockDataValuesMap.associateBy { blockDataValuesMap.indexOf(it) })
+        // Radius
+        content.addInt(radius)
 
-        val folder = File(plugin.server.worldContainer, "areas")
-        folder.mkdirs()
-        val file = File(folder, "area_${x}_${y}_${z}.txt")
-        file.writeText(content.toString())
+        // Names
+        content.newPart()
+        blockNamesSet.forEachIndexed{ index, value ->
+            content.addString(value)
+            if(index < blockNamesSet.size - 1)
+                content.separate()
+        }
 
-        sender.sendMessage("${ChatColor.GREEN}Completed!!")
+        // Meta keys
+        content.newPart()
+        blockDataKeySet.forEachIndexed{ index, value ->
+            content.addString(value)
+            if(index < blockDataKeySet.size - 1)
+                content.separate()
+        }
+
+        // Meta values
+        content.newPart()
+        blockDataValuesSet.forEachIndexed{ index, value ->
+            content.addString(value)
+            if(index < blockDataValuesSet.size - 1)
+                content.separate()
+        }
+
+        // Area
+        content.newPart()
+        content.addBytes(blocks.toByteList())
+
+        val areas = File(plugin.server.worldContainer, "areas")
+        areas.mkdirs()
+        File(areas, "area_${x}_${y}_${z}.map").writeBytes(content.toByteArray())
+
+        sender.sendMessage("${ChatColor.GREEN}Completed!")
     }
 
-    private fun getBlock(x: Int, y: Int, z: Int): Block = Bukkit.getWorlds()[0].getBlockAt(x, y, z)
+    private fun getBlock(x: Int, y: Int, z: Int): Block = (sender as Entity).world.getBlockAt(x, y, z)
 
-    private fun light(block: Block): Byte{
+    private fun getLight(block: Block): Int{
         return if(sky)
-            block.lightLevel
+            block.lightLevel.toInt()
         else
-            block.lightFromBlocks
+            block.lightFromBlocks.toInt()
+    }
+
+    private fun lightPairAsInt(block1: Block, block2: Block): Int = (getLight(block1) shl 4) or getLight(block2)
+
+    private class CachedHashSet<T>: LinkedHashSet<T>(){
+
+        fun addAndGetIndex(value: T): Int{
+            add(value)
+            return indexOf(value)
+        }
+    }
+
+    private class ByteWriter{
+
+        private val partSeparator = 0.toByte()
+        private val separator = 1.toByte()
+        private var bytes = arrayListOf<Byte>()
+
+        fun addInt(num: Int): ByteWriter {
+            bytes.add((num + 2).toByte())
+            return this
+        }
+
+        fun addString(str: String): ByteWriter{
+            bytes.addAll(str.toByteArray(StandardCharsets.UTF_8).toTypedArray())
+            return this
+        }
+
+        fun addBytes(bytes: List<Byte>): ByteWriter{
+            this.bytes.addAll(bytes)
+            return this
+        }
+
+        fun separate(): ByteWriter {
+            bytes.add(separator)
+            return this
+        }
+
+        fun newPart(): ByteWriter {
+            bytes.add(partSeparator)
+            return this
+        }
+
+        fun toByteList(): List<Byte> = bytes
+
+        fun toByteArray(): ByteArray = bytes.toByteArray()
     }
 }
