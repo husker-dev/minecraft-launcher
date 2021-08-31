@@ -1,156 +1,243 @@
 package com.husker.minecraft.launcher.plugin
 
 
+import com.husker.minecraft.launcher.plugin.transform.Point3D
+import com.husker.minecraft.launcher.plugin.transform.Rotation
+import com.husker.minecraft.launcher.plugin.utils.ProgressBar
+import com.husker.minecraft.launcher.plugin.writer.AreaFileWriter
 import org.bukkit.ChatColor
 import org.bukkit.block.Block
+import org.bukkit.block.BlockFace
+import org.bukkit.boss.BarColor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Entity
+import org.bukkit.entity.Player
 import org.bukkit.plugin.Plugin
+import org.bukkit.util.BlockIterator
+import org.bukkit.util.RayTraceResult
 import java.io.File
-import java.lang.UnsupportedOperationException
-import java.nio.charset.StandardCharsets
+import kotlin.math.cos
+import kotlin.math.pow
+import kotlin.math.sin
 
-class AreaGenerator(private val sender: CommandSender, plugin: Plugin, x: Int, y: Int, z: Int, radius: Int, private val sky: Boolean) {
+class AreaGenerator(val sender: CommandSender, plugin: Plugin, x: Int, y: Int, z: Int, radius: Int, sky: Boolean) {
+
+    private val pivot = Point3D(x + 0.5, y + 4.5, z + 0.5)
+    private val camPos = Point3D(x + 0.5, y + 4.5, z - 17.5)
+
+    private val world = (sender as Entity).world
 
     init {
-        val content = ByteWriter()
-        val blocks = ByteWriter()
+        val writer = AreaFileWriter(radius, x, y, z, (sender as Entity).world, sky)
 
-        val blockNamesSet = CachedHashSet<String>()
-        val blockDataKeySet = CachedHashSet<String>()
-        val blockDataValuesSet = CachedHashSet<String>()
+        // Getting visible blocks
+        val progressBar = ProgressBar(sender)
+        with(progressBar){
+            title = "Getting visible blocks"
+            color = BarColor.GREEN
+            max = (radius * 2.0).pow(3).toInt()
+        }
 
-        for(lx in x-radius..x+radius){
-            for(ly in y-radius..y+radius){
-                for(lz in z-radius..z+radius){
-                    val block = getBlock(lx, ly, lz)
-                    val name = block.toString().split("data=Block{")[1].split(":")[1].split("}")[0]
+        val blocks = arrayListOf<Block>()
+        val visibleBlocks = arrayListOf<Block>()
 
-                    if(name == "air" || name == "void_air")
-                        continue
+        for(lx in x-radius..x+radius)
+            for(ly in y-radius..y+radius)
+                for(lz in z-radius..z+radius)
+                    blocks.add(getBlock(lx, ly, lz))
 
-                    val info = ByteWriter()
+        blocks.parallelStream().forEach {
+            if(isBlockVisible(it))
+                visibleBlocks.add(it)
+            progressBar.value++
+        }
 
-                    // Name
-                    info.addInt(blockNamesSet.addAndGetIndex(name))
+        // Getting visible sides
+        with(progressBar){
+            title = "Getting visible sides"
+            color = BarColor.YELLOW
+            value = 0
+            max = visibleBlocks.size
+        }
 
-                    // Coordinates
-                    info.addInt(lx - (x-radius))    // X
-                    info.addInt(ly - (y-radius))    // Y
-                    info.addInt(lz - (z-radius))    // Z
+        visibleBlocks.parallelStream().forEach {
+            writer.addBlock(it, getVisibleSides(it))
+            progressBar.value++
+        }
 
-                    // Light
-                    info.addInt(lightPairAsInt(getBlock(lx, ly, lz - 1), getBlock(lx, ly, lz + 1)))    // Front, Back
-                    info.addInt(lightPairAsInt(getBlock(lx + 1, ly, lz), getBlock(lx - 1, ly, lz)))    // Right, Left
-                    info.addInt(lightPairAsInt(getBlock(lx, ly + 1, lz), getBlock(lx, ly - 1, lz)))    // Top, Bottom
+        // Saving
+        with(progressBar){
+            title = "Saving area"
+            color = BarColor.WHITE
+            value = 1
+            max = 2
+        }
+        writer.save(File(plugin.server.worldContainer, "areas"))
+        progressBar.disable()
+        sender.sendMessage("${ChatColor.GREEN}Completed.")
+    }
 
-                    // Meta
-                    if("[" in block.blockData.toString()) {
-                        for (dataPair in block.blockData.toString().split("[")[1].split("]")[0].split(",")) {
-                            val data = dataPair.split("=")
+    private fun isBlockVisible(block: Block): Boolean{
+        val name = block.toString().split("data=Block{")[1].split(":")[1].split("}")[0]
+        if(name == "air" || name == "void_air")
+            return false
 
-                            info.addInt(blockDataKeySet.addAndGetIndex(data[0]))
-                            info.addInt(blockDataValuesSet.addAndGetIndex(data[1]))
+        val indent = 0.005
+        var result = false
+        val rotator = CamRotator()
+        rotator.start { cam ->
+            for(tx in 0..2){
+                for(ty in 0..2){
+                    for(tz in 0..2){
+                        val point = Point3D(block.x + indent, block.y + indent, block.z + indent)
+                        if(tx > 0)
+                            point.x += (1 - indent * 2.0) / tx.toDouble()
+                        if(ty > 0)
+                            point.y += (1 - indent * 2.0) / ty.toDouble()
+                        if(tz > 0)
+                            point.z += (1 - indent * 2.0) / tz.toDouble()
+
+                        if(checkRayTrace(cam, point, block)){
+                            result = true
+                            rotator.stop()
+                            return@start
                         }
                     }
-
-                    blocks.addBytes(info.toByteList())
-                    if(lx != x+radius || ly != y+radius || lz!= z+radius)
-                        blocks.separate()
                 }
             }
         }
 
-        // Radius
-        content.addInt(radius)
-
-        // Names
-        content.newPart()
-        blockNamesSet.forEachIndexed{ index, value ->
-            content.addString(value)
-            if(index < blockNamesSet.size - 1)
-                content.separate()
-        }
-
-        // Meta keys
-        content.newPart()
-        blockDataKeySet.forEachIndexed{ index, value ->
-            content.addString(value)
-            if(index < blockDataKeySet.size - 1)
-                content.separate()
-        }
-
-        // Meta values
-        content.newPart()
-        blockDataValuesSet.forEachIndexed{ index, value ->
-            content.addString(value)
-            if(index < blockDataValuesSet.size - 1)
-                content.separate()
-        }
-
-        // Area
-        content.newPart()
-        content.addBytes(blocks.toByteList())
-
-        val areas = File(plugin.server.worldContainer, "areas")
-        areas.mkdirs()
-        File(areas, "area_${x}_${y}_${z}.map").writeBytes(content.toByteArray())
-
-        sender.sendMessage("${ChatColor.GREEN}Completed!")
+        return result
     }
 
-    private fun getBlock(x: Int, y: Int, z: Int): Block = (sender as Entity).world.getBlockAt(x, y, z)
+    private fun getVisibleSides(block: Block): Array<AreaFileWriter.Side>{
+        val sides = arrayListOf<AreaFileWriter.Side>()
 
-    private fun getLight(block: Block): Int{
-        return if(sky)
-            block.lightLevel.toInt()
-        else
-            block.lightFromBlocks.toInt()
+        val indent = 0.005
+        val rotator = CamRotator()
+        rotator.start { cam ->
+            if(sides.size == AreaFileWriter.Side.values().size) {
+                rotator.stop()
+                return@start
+            }
+            for(t1 in 0..2) {
+                for (t2 in 0..2) {
+                    if(AreaFileWriter.Side.Front !in sides){
+                        val point = Point3D(block.x + indent, block.y + indent, block.z.toDouble())
+                        if(t1 > 0) point.x += (1 - indent * 2.0) / t1.toDouble()
+                        if(t2 > 0) point.y += (1 - indent * 2.0) / t2.toDouble()
+                        if(checkRayTraceFace(cam, point, block, BlockFace.NORTH))
+                            sides.add(AreaFileWriter.Side.Front)
+                    }
+                    if(AreaFileWriter.Side.Top !in sides){
+                        val point = Point3D(block.x + indent, block.y + 1.0, block.z + indent)
+                        if(t1 > 0) point.x += (1 - indent * 2.0) / t1.toDouble()
+                        if(t2 > 0) point.z += (1 - indent * 2.0) / t2.toDouble()
+                        if(checkRayTraceFace(cam, point, block, BlockFace.UP))
+                            sides.add(AreaFileWriter.Side.Top)
+                    }
+                    if(AreaFileWriter.Side.Bottom !in sides){
+                        val point = Point3D(block.x + indent, block.y.toDouble(), block.z + indent)
+                        if(t1 > 0) point.x += (1 - indent * 2.0) / t1.toDouble()
+                        if(t2 > 0) point.z += (1 - indent * 2.0) / t2.toDouble()
+                        if(checkRayTraceFace(cam, point, block, BlockFace.DOWN))
+                            sides.add(AreaFileWriter.Side.Bottom)
+                    }
+                    if(AreaFileWriter.Side.Left !in sides){
+                        val point = Point3D(block.x + 1.0, block.y + indent, block.z + indent)
+                        if(t1 > 0) point.y += (1 - indent * 2.0) / t1.toDouble()
+                        if(t2 > 0) point.z += (1 - indent * 2.0) / t2.toDouble()
+                        if(checkRayTraceFace(cam, point, block, BlockFace.WEST))
+                            sides.add(AreaFileWriter.Side.Left)
+                    }
+                    if(AreaFileWriter.Side.Right !in sides){
+                        val point = Point3D(block.x.toDouble(), block.y + indent, block.z + indent)
+                        if(t1 > 0) point.y += (1 - indent * 2.0) / t1.toDouble()
+                        if(t2 > 0) point.z += (1 - indent * 2.0) / t2.toDouble()
+                        if(checkRayTraceFace(cam, point, block, BlockFace.EAST))
+                            sides.add(AreaFileWriter.Side.Right)
+                    }
+                }
+            }
+        }
+
+        return sides.toArray(arrayOf())
     }
 
-    private fun lightPairAsInt(block1: Block, block2: Block): Int = (getLight(block1) shl 4) or getLight(block2)
+    fun isPassable(block: Block) = (block.isEmpty || block.isLiquid || block.isPassable)
 
-    private class CachedHashSet<T>: LinkedHashSet<T>(){
+    private fun checkRayTraceFace(cam: Point3D, blockPos: Point3D, block: Block, face: BlockFace): Boolean{
+        val iterator = BlockIterator(world, cam.toVector(), cam.toVector(blockPos), 0.0, cam.distance(blockPos).toInt() + 2)
 
-        fun addAndGetIndex(value: T): Int{
-            add(value)
-            return indexOf(value)
+        // Near blocks
+        val topBlock = block.world.getBlockAt(block.x, block.y + 1, block.z)
+        val bottomBlock = block.world.getBlockAt(block.x, block.y - 1, block.z)
+        val leftBlock = block.world.getBlockAt(block.x + 1, block.y, block.z)
+        val rightBlock = block.world.getBlockAt(block.x - 1, block.y, block.z)
+        //val backBlock = block.world.getBlockAt(block.x, block.y, block.z + 1)
+        val frontBlock = block.world.getBlockAt(block.x, block.y, block.z - 1)
+
+        while(iterator.hasNext()){
+            val foundBlock = iterator.next()
+
+            when(foundBlock){
+                topBlock -> return face == BlockFace.UP && isPassable(topBlock)
+                bottomBlock -> return face == BlockFace.DOWN && isPassable(bottomBlock)
+                leftBlock -> return face == BlockFace.WEST && isPassable(leftBlock)
+                rightBlock -> return face == BlockFace.EAST && isPassable(rightBlock)
+                //backBlock -> return face == BlockFace.NORTH// && isPassable(backBlock)
+                frontBlock -> return face == BlockFace.NORTH && isPassable(frontBlock)
+            }
+
+            if(isPassable(foundBlock))
+                continue
+            return false
         }
+        return false
     }
 
-    private class ByteWriter{
+    private fun checkRayTrace(cam: Point3D, blockPos: Point3D, block: Block): Boolean{
+        val iterator = BlockIterator(world, cam.toVector(), cam.toVector(blockPos), 0.0, cam.distance(blockPos).toInt() + 2)
+        while(iterator.hasNext()){
+            val foundBlock = iterator.next()
 
-        private val partSeparator = 0.toByte()
-        private val separator = 1.toByte()
-        private var bytes = arrayListOf<Byte>()
+            if(foundBlock == block)
+                return true
+            if(isPassable(foundBlock))
+                continue
+            return false
+        }
+        return false
+    }
 
-        fun addInt(num: Int): ByteWriter {
-            bytes.add((num + 2).toByte())
-            return this
+    private fun getBlock(x: Int, y: Int, z: Int): Block = world.getBlockAt(x, y, z)
+
+
+    inner class CamRotator {
+        var isWorking = false
+
+        fun start(loop: (Point3D) -> Unit){
+            isWorking = true
+            var angle = 0.0
+            while(angle < Math.PI * 2 && isWorking) {
+                angle += 0.2
+                val camPoint = camRotationFunc(angle)
+                loop.invoke(camPoint)
+            }
         }
 
-        fun addString(str: String): ByteWriter{
-            bytes.addAll(str.toByteArray(StandardCharsets.UTF_8).toTypedArray())
-            return this
+        fun stop(){
+            isWorking = false
         }
 
-        fun addBytes(bytes: List<Byte>): ByteWriter{
-            this.bytes.addAll(bytes)
-            return this
+        private fun camRotationFunc(value: Double): Point3D{
+            // Rotation func from launcher
+            val range = 10  // Not 6 because not all blocks detected
+
+            val rotX = sin(value) * range
+            val rotY = cos(value) * range
+
+            return Rotation(rotX, pivot, Rotation.Y_AXIS).transform(Rotation(rotY, pivot, Rotation.X_AXIS).transform(camPos))
         }
-
-        fun separate(): ByteWriter {
-            bytes.add(separator)
-            return this
-        }
-
-        fun newPart(): ByteWriter {
-            bytes.add(partSeparator)
-            return this
-        }
-
-        fun toByteList(): List<Byte> = bytes
-
-        fun toByteArray(): ByteArray = bytes.toByteArray()
     }
 }

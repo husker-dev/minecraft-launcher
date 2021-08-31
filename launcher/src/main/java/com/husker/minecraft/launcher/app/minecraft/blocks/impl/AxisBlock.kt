@@ -1,6 +1,6 @@
 package com.husker.minecraft.launcher.app.minecraft.blocks.impl
 
-import com.husker.minecraft.launcher.app.minecraft.MineVersion
+import com.husker.minecraft.launcher.app.minecraft.versions.MineVersion
 import com.husker.minecraft.launcher.app.minecraft.blocks.ModelBlock
 
 class AxisBlock(version: MineVersion, var id: String): ModelBlock(version) {

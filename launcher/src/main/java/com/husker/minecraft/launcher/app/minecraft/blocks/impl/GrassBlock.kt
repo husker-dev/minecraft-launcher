@@ -1,9 +1,8 @@
 package com.husker.minecraft.launcher.app.minecraft.blocks.impl
 
-import com.husker.minecraft.launcher.app.minecraft.MineVersion
+import com.husker.minecraft.launcher.app.minecraft.versions.MineVersion
 import com.husker.minecraft.launcher.app.minecraft.blocks.ModelBlock
-import com.husker.minecraft.launcher.app.minecraft.models.ModelTexture
-import javafx.geometry.Point3D
+import com.husker.minecraft.launcher.app.minecraft.model.ModelTexture
 import javafx.scene.shape.CullFace
 import javafx.scene.transform.Translate
 import java.util.*
@@ -20,7 +19,7 @@ class GrassBlock(version: MineVersion, name: String): ModelBlock(version, name) 
         return super.getTextures().map {
             it.light = actualLight
             it.cullFace = CullFace.NONE
-            it.transforms.add(Translate(xt, 0.0, zt))
+            it.transform(Translate(xt, 0.0, zt))
             return@map it
         }.toTypedArray()
     }

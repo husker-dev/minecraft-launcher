@@ -12,17 +12,15 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        System.loadLibrary("d3d9");
         initializeProperties();
         Application.launch(Launcher.class);
-
-
     }
 
     public static void initializeProperties(){
+        System.setProperty("prism.order", "es2");
         System.setProperty("prism.lcdtext", "false");
         System.setProperty("prism.vsync", "false");
-        System.setProperty("javafx.cachedir", System.getProperty("user.home") + "/.openjfx/cache/minecraft-launcher/" + System.nanoTime());
+        System.setProperty("javafx.cachedir", System.getProperty("user.home") + "/.openjfx/cache/minecraft-launcher/");
     }
 
 }

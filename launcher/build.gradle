@@ -7,6 +7,7 @@ buildscript {
     }
 }
 
+
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm'
@@ -18,13 +19,19 @@ version '1.0'
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
-apply from: 'fx_patch.gradle'
 apply from: 'resources.gradle'
 
 dependencies {
     implementation 'org.json:json:20210307'
+    implementation 'com.github.husker-dev:openglfx:1.1'
+
+    implementation 'org.jogamp.jogl:jogl-all-main:2.3.2'
+    implementation 'org.jogamp.gluegen:gluegen-rt-main:2.3.2'
+
+    implementation fileTree("libs")
 
     for(module in ["base", "controls", "graphics", "fxml"])
         for(os in ["win", "mac", "linux"])

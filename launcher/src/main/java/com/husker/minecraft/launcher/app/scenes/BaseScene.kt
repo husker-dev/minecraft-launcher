@@ -4,7 +4,7 @@ import com.husker.minecraft.launcher.app.Resources
 import com.husker.minecraft.launcher.app.animation.EasingTransition
 import com.husker.minecraft.launcher.app.animation.NodeAnimation
 import com.husker.minecraft.launcher.app.animation.easing.Elastic
-import com.husker.minecraft.launcher.app.minecraft.MineVersion
+import com.husker.minecraft.launcher.app.minecraft.versions.MineVersion
 import com.husker.minecraft.launcher.app.minecraft.scene.PreviewScene
 import com.husker.minecraft.launcher.app.scenes.nplay.NPlayTab
 import com.husker.minecraft.launcher.app.scenes.profile.ProfileTab
@@ -125,8 +125,8 @@ class BaseScene : ResourceScene("base.fxml") {
 
         bgContent.children.add(previewScene)
         bgContent.children.add(DebugPanel())
-        previewScene.widthProperty().bind(widthProperty())
-        previewScene.heightProperty().bind(heightProperty())
+        previewScene.prefWidthProperty().bind(widthProperty())
+        previewScene.prefHeightProperty().bind(heightProperty())
 
 
         // Title
@@ -154,7 +154,7 @@ class BaseScene : ResourceScene("base.fxml") {
 
         backgroundPane.background = Background(BackgroundFill(parameters.color, CornerRadii(0.0), Insets(0.0, 0.0, 0.0, 0.0)))
         Thread {
-            previewScene.applyVersionMap(version)
+            previewScene.applyVersionMapFile(version)
         }.start()
 
     }

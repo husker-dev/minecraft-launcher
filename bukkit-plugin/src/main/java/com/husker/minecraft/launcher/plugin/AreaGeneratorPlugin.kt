@@ -12,31 +12,33 @@ class AreaGeneratorPlugin : JavaPlugin() {
 
     override fun onEnable() {
         getCommand("area")!!.setExecutor{ sender, _, _, args ->
-            try {
-                when (args.size) {
-                    5 -> AreaGenerator(
-                        sender,
-                        this,
-                        args[0].toInt(),
-                        args[1].toInt(),
-                        args[2].toInt(),
-                        args[3].toInt(),
-                        args[4] == "true"
-                    )
-                    4 -> AreaGenerator(
-                        sender,
-                        this,
-                        args[0].toInt(),
-                        args[1].toInt(),
-                        args[2].toInt(),
-                        args[3].toInt(),
-                        false
-                    )
-                    else -> sender.sendMessage("${ChatColor.RED}Usage: /area [x] [y] [z] [radius] [sky_light]")
+            Thread {
+                try {
+                    when (args.size) {
+                        5 -> AreaGenerator(
+                            sender,
+                            this,
+                            args[0].toInt(),
+                            args[1].toInt(),
+                            args[2].toInt(),
+                            args[3].toInt(),
+                            args[4] == "true"
+                        )
+                        4 -> AreaGenerator(
+                            sender,
+                            this,
+                            args[0].toInt(),
+                            args[1].toInt(),
+                            args[2].toInt(),
+                            args[3].toInt(),
+                            false
+                        )
+                        else -> sender.sendMessage("${ChatColor.RED}Usage: /area [x] [y] [z] [radius] [sky_light]")
+                    }
+                } catch (e: UnsupportedOperationException) {
+                    sender.sendMessage("${ChatColor.RED}Too large radius or too many blocks!")
                 }
-            }catch (e: UnsupportedOperationException){
-                sender.sendMessage("${ChatColor.RED}Too large radius or too many blocks!")
-            }
+            }.start()
             return@setExecutor true
         }
         getCommand("area")!!.tabCompleter = AreaCommandCompleter

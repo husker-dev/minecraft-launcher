@@ -1,10 +1,9 @@
 package com.husker.minecraft.launcher.app.minecraft.blocks
 
-import com.husker.minecraft.launcher.app.minecraft.Block
-import com.husker.minecraft.launcher.app.minecraft.MineVersion
-import com.husker.minecraft.launcher.app.minecraft.models.ModelTexture
-import com.husker.minecraft.launcher.app.minecraft.models.Model
-import com.husker.minecraft.launcher.app.minecraft.models.TextureSource
+import com.husker.minecraft.launcher.app.minecraft.versions.MineVersion
+import com.husker.minecraft.launcher.app.minecraft.model.ModelTexture
+import com.husker.minecraft.launcher.app.minecraft.model.Model
+import com.husker.minecraft.launcher.app.minecraft.model.TextureSource
 
 open class ModelBlock(var source: TextureSource, var name: String = "block"): Block() {
 

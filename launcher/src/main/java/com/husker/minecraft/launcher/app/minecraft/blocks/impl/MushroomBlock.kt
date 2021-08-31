@@ -1,9 +1,7 @@
 package com.husker.minecraft.launcher.app.minecraft.blocks.impl
 
-import com.husker.minecraft.launcher.app.minecraft.Block
-import com.husker.minecraft.launcher.app.minecraft.models.ModelTexture
-import javafx.geometry.Point3D
-import javafx.scene.image.Image
+import com.husker.minecraft.launcher.app.minecraft.blocks.Block
+import com.husker.minecraft.launcher.app.minecraft.model.ModelTexture
 
 open class MushroomBlock(version: String, name: String): Block() {
 

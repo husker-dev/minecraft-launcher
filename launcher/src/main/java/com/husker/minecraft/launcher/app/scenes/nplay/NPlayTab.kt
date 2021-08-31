@@ -3,7 +3,7 @@ package com.husker.minecraft.launcher.app.scenes.nplay
 import com.husker.minecraft.launcher.app.Resources
 import com.husker.minecraft.launcher.app.animation.NodeAnimation
 import com.husker.minecraft.launcher.app.animation.WaveAnimation
-import com.husker.minecraft.launcher.app.minecraft.MineVersion
+import com.husker.minecraft.launcher.app.minecraft.versions.MineVersion
 import com.husker.minecraft.launcher.app.scenes.Tab
 import com.husker.minecraft.launcher.tools.fx.ImageContentUtils
 import javafx.scene.image.ImageView
@@ -11,7 +11,6 @@ import javafx.scene.paint.Color
 
 
 class NPlayTab : Tab("Play", Resources.svg("play.svg")) {
-
 
     private val logo : ImageView
 
@@ -26,11 +25,8 @@ class NPlayTab : Tab("Play", Resources.svg("play.svg")) {
         WaveAnimation.apply(logo)
         ImageContentUtils.scale(logo)
 
-
         setVersion(MineVersion.v1_16)
     }
-
-
 
     private fun setVersion(version : MineVersion){
         Thread{
